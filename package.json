@@ -1,0 +1,35 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "combat-io",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.4.5",
+    "@msgpack/msgpack": "^2.7.2",
+    "node-fetch": "^2.6.1",
+    "fs": "^0.0.2",
+    "body-parser": "^1.19.0",
+    "sqlite3": "^5.0.2",
+    "cookie-parser": "^1.4.5"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
