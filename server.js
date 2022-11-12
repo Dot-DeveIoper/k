@@ -1650,7 +1650,7 @@
               if (!found && socket.player.isLeader != true) {
                 clans.push({
                   id: clans.length,
-                  owner: socket.player.sid,
+                  owner: socket.player.sid || 60,
                   clanName: msg[1][0],
                 });
                 members.push({
@@ -1718,7 +1718,9 @@
                 }
                 return false;
               }
-            } catch (err) {}
+            } catch (err) {
+              console.log(e);
+            }
             break;
           case "joinClan":
             try {
@@ -1861,16 +1863,20 @@
         });
     }, 1e4);
     socket.on("close", () => {
-      players.removeItem(players.find((x) => x.sid == socket.player.sid));
-      for (let i = 0; i < members.length; i++) {
-        if (clans[i].owner === socket.player.sid) {
-          let index = clans.map((item) => item.id).indexOf(i);
-          if (index > -1) {
-            clans.splice(index, 1);
+      try {
+        players.removeItem(players.find((x) => x.sid == socket.player.sid));
+        for (let i = 0; i < members.length; i++) {
+          if (clans[i].owner === socket.player.sid) {
+            let index = clans.map((item) => item.id).indexOf(i);
+            if (index > -1) {
+              clans.splice(index, 1);
+            }
+            return false;
           }
-          return false;
         }
-      }
+    } catch(e) {
+      console.log(e);
+    }
     });
   });
   var server = app.listen(8e3, () => {
