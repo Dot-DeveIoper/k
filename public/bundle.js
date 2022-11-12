@@ -1321,6 +1321,8 @@ function L(_) {
       yOffset: 0,
     },
   ];
+  crown.src = "https://cdn.glitch.global/069d62dd-5ac4-4928-9200-7250f0cc75c3/crown.png?v=1668220955197";
+
   weapons.forEach((w) => {
     w.img.src = w.src;
   });
@@ -1456,7 +1458,6 @@ function L(_) {
       ctx.strokeText(w, x - 7, y - 50);
       ctx.fillText(w, x - 7, y - 50);
     }
-    crown.src = "https://www.freeiconspng.com/uploads/queen-crown-icon-5.png";
     player.isLeader && ctx.drawImage(crown, x - 80, y - 100, 40, 40);
     if (player.chat) {
       ctx.textAlign = "center";
