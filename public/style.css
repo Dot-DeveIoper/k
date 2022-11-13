@@ -33,9 +33,11 @@ body {
   overflow: hidden;
   background-color: #77c44c;
   font-family: "Hammersmith One", sans-serif;
-  width: 100vh;
+  /* width: 100vh; */
   /* Switching this to 100vw will make the game crash */
-  height: 100%;
+  width: min(100%, 100vw);
+  /* height: 100%; */
+  height: min-content;
 }
 
 .backgroundImg {
